@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rafa Ramadana — Portofolio SMK</title>
+  <meta name="description" content="Portofolio Rafa Ramadana — calon lulusan SMK. CV, proyek, keahlian, dan kontak untuk melamar pekerjaan." />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --text:#e6eef6;
+      --accent:#4f9cff;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --maxw:1100px;
+    }
+
+    /* Light mode */
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f8fb;
+        --card:#ffffff;
+        --muted:#56606a;
+        --text:#071428;
+        --accent:#1565d8;
+        --glass: rgba(2,6,23,0.03);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--bg), #061122 70%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap:20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    /* SIDEBAR */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.45);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .profile{
+      text-align:center;
+    }
+
+    .avatar{
+      width:120px;
+      height:120px;
+      border-radius:20px;
+      display:inline-block;
+      overflow:hidden;
+      border: 2px solid rgba(255,255,255,0.06);
+      background:linear-gradient(135deg,var(--accent), #6ec1ff);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      margin-bottom:14px;
+    }
+
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    h1{
+      margin:8px 0 4px;
+      font-size:20px;
+      letter-spacing:0.2px;
+    }
+
+    .role{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .meta{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .meta .pill{
+      background:var(--glass);
+      color:var(--text);
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .about{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .contact-list{
+      margin-top:16px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .contact-item{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      background:linear-gradient(90deg,var(--accent), #67b7ff);
+      color:white;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:600;
+      box-shadow: 0 8px 18px rgba(79,156,255,0.15);
+      border: none;
+    }
+
+    .btn-outline{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:9px 12px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* MAIN */
+    .main-col{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .hero{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .hello{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .hello h2{
+      margin:0;
+      font-size:20px;
+      font-weight:700;
+    }
+
+    .headline{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    /* Sections */
+    section{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .section-title h3{margin:0;font-size:16px}
+    .grid{
+      display:grid;
+      gap:12px;
+    }
+
+    /* Skills */
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{
+      background:var(--glass);
+      padding:8px 10px;border-radius:10px;font-weight:600;font-size:13px;border:1px solid rgba(255,255,255,0.02)
+    }
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:12px}
+    .project{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .project h4{margin:0 0 6px 0;font-size:14px}
+    .project p{margin:0;font-size:13px;color:var(--muted);line-height:1.4}
+    .project .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
+
+    /* Education & Experience */
+    .timeline{display:flex;flex-direction:column;gap:10px}
+    .item{padding:10px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
+    .item h5{margin:0 0 6px 0;font-size:14px}
+    .item p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Contact form */
+    .contact-form{display:grid;gap:10px}
+    .contact-form input,.contact-form textarea{
+      width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);
+      font-size:14px;
+    }
+    .row{display:flex;gap:10px}
+    .row .col{flex:1}
+
+    /* Footer */
+    footer{margin-top:12px;text-align:center;color:var(--muted);font-size:13px;padding:6px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .container{grid-template-columns: 1fr; padding:0; margin:0}
+      .avatar{width:96px;height:96px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="pageTitle">
+    <!-- SIDEBAR -->
+    <aside class="card" aria-label="Profil Rafa Ramadana">
+      <div class="profile">
+        <div class="avatar" aria-hidden="true">
+          <!-- Ganti src ke foto kamu -->
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Foto Rafa Ramadana">
+        </div>
+        <h1 id="pageTitle">Rafa Ramadana</h1>
+        <p class="role">Calon Lulusan SMK • Jurusan Teknik Komputer & Jaringan</p>
+
+        <div class="meta" aria-hidden="false">
+          <span class="pill">Bandung, Indonesia</span>
+          <span class="pill">Lulusan 2026</span>
+        </div>
+
+        <p class="about">
+          Saya siswa SMK jurusan Teknik Komputer & Jaringan yang tertarik pada pengembangan web, jaringan komputer, dan pemecahan masalah teknis. Mencari peluang magang/kerja setelah lulus.
+        </p>
+
+        <div class="contact-list" aria-label="Kontak">
+          <div class="contact-item"><strong>Email:</strong>&nbsp;<a href="mailto:rafa@example.com" style="color:var(--text);text-decoration:none">rafa@example.com</a></div>
+          <div class="contact-item"><strong>Telepon:</strong>&nbsp;<a href="tel:+6281234567890" style="color:var(--text);text-decoration:none">+62 812-3456-7890</a></div>
+          <div class="contact-item"><strong>LinkedIn:</strong>&nbsp;<a href="#" style="color:var(--text);text-decoration:none">linkedin.com/in/rafa-ramadana</a></div>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px;justify-content:center;">
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Unduh CV</a>
+          <a class="btn-outline" href="#kontak">Kontak</a>
+        </div>
+      </div>
+
+      <div style="margin-top:18px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong style="font-size:13px">Keahlian</strong>
+          <span style="color:var(--muted);font-size:13px">Level</span>
+        </div>
+        <div style="margin-top:10px" class="skills" aria-hidden="false">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript (Dasar)</span>
+          <span class="skill">TCP/IP</span>
+          <span class="skill">Routing & Switching</span>
+          <span class="skill">Linux (Dasar)</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-col">
+      <section class="card hero" aria-labelledby="introTitle">
+        <div class="hello">
+          <h2 id="introTitle">Hai — saya Rafa, calon teknisi & developer</h2>
+          <p class="headline">Membuat solusi praktis untuk masalah teknis sehari-hari. Siap bekerja magang atau sebagai teknisi junior setelah lulus.</p>
+        </div>
+
+        <div class="actions" aria-hidden="true">
+          <a class="btn" href="#projects">Lihat Proyek</a>
+          <a class="btn-outline" href="#education">Riwayat</a>
+        </div>
+      </section>
+
+      <section id="projects" class="card" aria-labelledby="projTitle">
+        <div class="section-title">
+          <h3 id="projTitle">Proyek & Portofolio</h3>
+          <small style="color:var(--muted)">Contoh hasil kerja sekolah & latihan</small>
+        </div>
+
+        <div class="projects">
+          <article class="project" aria-labelledby="p1">
+            <h4 id="p1">Website Sekolah (Project)</h4>
+            <p>Membuat situs statis sekolah menggunakan HTML & CSS. Bertanggung jawab pada layout responsif dan optimasi gambar.</p>
+            <div class="tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span>
+            </div>
+          </article>
+
+          <article class="project" aria-labelledby="p2">
+            <h4 id="p2">Konfigurasi Jaringan Lab</h4>
+            <p>Setup VLAN, routing antar-VLAN, dan dokumentasi topologi jaringan untuk laboratorium komputer sekolah.</p>
+            <div class="tags">
+              <span class="tag">Routing</span><span class="tag">Switching</span><span class="tag">Dokumentasi</span>
+            </div>
+          </article>
+
+          <article class="project" aria-labelledby="p3">
+            <h4 id="p3">Sistem Monitoring (Sederhana)</h4>
+            <p>Menggunakan tools open-source untuk memonitor uptime server lokal dan membuat laporan mingguan.</p>
+            <div class="tags">
+              <span class="tag">Monitoring</span><span class="tag">Linux</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="education" class="card" aria-labelledby="eduTitle">
+        <div class="section-title">
+          <h3 id="eduTitle">Pendidikan & Pengalaman</h3>
+        </div>
+
+        <div class="timeline">
+          <div class="item">
+            <h5>SMK — Teknik Komputer & Jaringan</h5>
+            <p>SMK Negeri X — 2023 — 2026 (Berjalan). Mata pelajaran: Jaringan, Sistem Operasi, Pemrograman Dasar.</p>
+          </div>
+
+          <div class="item">
+            <h5>Magang / Kerja Praktik</h5>
+            <p>Magang singkat di Toko Komputer lokal — instalasi PC, troubleshooting jaringan, layanan pelanggan.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="card" aria-labelledby="skillsTitle">
+        <div class="section-title">
+          <h3 id="skillsTitle">Skill Mendalam</h3>
+        </div>
+
+        <div class="grid">
+          <div style="display:flex;gap:14px;flex-wrap:wrap">
+            <div style="flex:1;min-width:220px">
+              <strong>Web Development</strong>
+              <p style="color:var(--muted);margin-top:6px">HTML5, CSS3, dasar JavaScript. Familiar dengan pembuatan halaman responsif dan debug cross-browser.</p>
+            </div>
+            <div style="flex:1;min-width:220px">
+              <strong>Jaringan & Infrastruktur</strong>
+              <p style="color:var(--muted);margin-top:6px">Konsep TCP/IP, subnetting, VLAN, konfigurasi switch/router dasar, troubleshooting kabel dan koneksi.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontak" class="card" aria-labelledby="contactTitle">
+        <div class="section-title">
+          <h3 id="contactTitle">Kontak & Pesan</h3>
+        </div>
+
+        <!-- Simple contact form -->
+        <form class="contact-form" action="mailto:rafa@example.com" method="post" enctype="text/plain" aria-label="Form kontak">
+          <div class="row">
+            <div class="col">
+              <input type="text" name="Nama" placeholder="Nama lengkap" required>
+            </div>
+            <div class="col">
+              <input type="email" name="Email" placeholder="Email" required>
+            </div>
+          </div>
+          <input type="text" name="Subjek" placeholder="Subjek (mis. Lamaran Magang)">
+          <textarea name="Pesan" rows="6" placeholder="Tulis pesan Anda..." required></textarea>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <button type="submit" class="btn">Kirim Pesan</button>
+            <a class="btn-outline" href="mailto:rafa@example.com">Kirim langsung lewat Email</a>
+          </div>
+        </form>
+      </section>
+
+      <footer class="card" role="contentinfo">
+        © <strong>Rafa Ramadana</strong> — Portofolio ini dibuat untuk tujuan melamar kerja/magang. Update terakhir: Nov 2025
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
